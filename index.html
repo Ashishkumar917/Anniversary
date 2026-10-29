@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 6 Months Anniversary, Bacha! ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #2b0518 0%, #120108 70%, #050003 100%);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Floating Magical Hearts */
+        .heart-bg {
+            position: absolute;
+            color: rgba(255, 77, 148, 0.6);
+            animation: floatUp 7s linear infinite;
+            bottom: -50px;
+            font-size: 26px;
+            user-select: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 12px rgba(255, 0, 128, 0.8));
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.7) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-55vh) scale(1.3) rotate(180deg); opacity: 0.85; }
+            100% { transform: translateY(-110vh) scale(1.6) rotate(360deg); opacity: 0; }
+        }
+
+        /* Music Control Floating Button */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 51, 119, 0.8);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(255, 51, 119, 0.5);
+            transition: 0.3s;
+        }
+
+        .music-control:hover {
+            background: rgba(255, 51, 119, 1);
+            transform: scale(1.05);
+        }
+
+        .container {
+            background: rgba(35, 8, 24, 0.9);
+            padding: 35px 25px;
+            border-radius: 35px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(255, 51, 119, 0.3);
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            z-index: 10;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 105, 180, 0.4);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            color: #ff4d88;
+            font-size: 46px;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(255, 77, 136, 0.6);
+        }
+
+        .step-indicator {
+            font-size: 12px;
+            color: #ffb3c6;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            background: rgba(45, 10, 32, 0.95);
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            text-align: left;
+            border-left: 5px solid #ff3377;
+            border-right: 1px solid rgba(255,105,180,0.2);
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-text {
+            font-size: 14.5px;
+            color: #ffe6ed;
+            line-height: 1.8;
+            font-style: italic;
+            width: 100%;
+        }
+
+        /* Navigation Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #ff3377 0%, #b5179e 100%);
+            color: white;
+            border: none;
+            padding: 13px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(255, 51, 119, 0.5);
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 51, 119, 0.8);
+        }
+
+        .secondary-btn {
+            background: rgba(80, 20, 60, 0.8);
+            border: 1px solid rgba(255, 105, 180, 0.4);
+            color: #ffd1dc;
+        }
+
+        /* Special Secret Button style */
+        .secret-trigger-btn {
+            background: linear-gradient(135deg, #7209b7 0%, #480ca8 100%);
+            box-shadow: 0 6px 20px rgba(114, 9, 183, 0.5);
+            margin-top: 5px;
+            display: none; /* Appears after cake cut */
+        }
+
+        /* Hidden Special Surprise Box */
+        .secret-reveal-box {
+            display: none;
+            margin-top: 15px;
+            padding: 18px;
+            background: rgba(60, 15, 50, 0.98);
+            border-radius: 18px;
+            color: #ffd1dc;
+            font-size: 13.5px;
+            line-height: 1.7;
+            font-style: italic;
+            border: 2px dashed #f72585;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            text-align: left;
+            animation: fadeIn 0.6s ease;
+        }
+
+        /* Cake Cutting Section */
+        .cake-container {
+            font-size: 60px;
+            margin: 10px 0;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .cake-msg {
+            font-size: 13px;
+            color: #ffd1dc;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Romantic Music -->
+    <audio id="bg-music" loop>
+        <source src="love_song.mpeg" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button class="music-control" id="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <div class="container">
+        <h1 id="main-title">Happy 6 Months! ❤️</h1>
+        <div id="step-indicator" class="step-indicator">Page 1 of 6</div>
+
+        <!-- Dynamic Page Display Box -->
+        <div class="page-content">
+            <p id="page-text" class="page-text">Loading...</p>
+        </div>
+
+        <!-- Hidden Secret Box (Opens when secret button is clicked after cake cut) -->
+        <div id="secretSurprise" class="secret-reveal-box">
+            <strong style="color: #ff4d88; font-style: normal; font-size: 15px;">🎁 Meri Sabse Pyaari Bacha, Yeh Tumhare Liye Ek Khaas Baat... ✨</strong><br><br>
+            "Sach kahun toh jabse tum meri zindagi mein aayi ho, har ek din kisi festival jaisa lagta hai. Dooriyan chahe jitni bhi ho, par mera dil har pal sirf tumhara hi naam leta hai. Main chahta hoon ki hum dono hamesha aise hi ek dusre ka sath nibhayein, har dukh-sukh mein ek dusre ki taaqat banein. Tum meri aakhri umeed aur meri sabse pehli khushi ho. I love you beyond words, Meri Jaan! Hamesha ke liye sirf aur sirf tumhara... ❤️🥰"
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="btn-group" id="btn-group">
+            <button class="action-btn" id="next-btn" onclick="nextPage()">Aage Badhein ➔</button>
+        </div>
+
+        <!-- Secret Button (Only appears after cake is cut on page 5) -->
+        <button id="secretBtn" class="action-btn secret-trigger-btn" onclick="toggleSecret()">🎁 Click for My Secret Surprise 🔓</button>
+    </div>
+
+    <script>
+        // Background Music Control & Instant Play on First Tap
+        const music = document.getElementById("bg-music");
+        const musicBtn = document.getElementById("music-btn");
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.innerHTML = "🎵 Play Music";
+                isPlaying = false;
+            } else {
+                music.play().then(() => {
+                    musicBtn.innerHTML = "🔇 Pause Music";
+                    isPlaying = true;
+                }).catch(e => {});
+            }
+        }
+
+        // Instant start music on the very first tap/click anywhere on screen
+        document.body.addEventListener('click', function() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    musicBtn.innerHTML = "🔇 Pause Music";
+                    isPlaying = true;
+                }).catch(e => {});
+            }
+        }, { once: true });
+
+        // Toggle Secret Surprise Box
+        function toggleSecret() {
+            const secretBox = document.getElementById("secretSurprise");
+            if (secretBox.style.display === "block") {
+                secretBox.style.display = "none";
+            } else {
+                secretBox.style.display = "block";
+                secretBox.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // 6 Pages Content (Without Timer, ending with Cake and Final Infinite Love Page)
+        const pages = [
+            {
+                type: "text",
+                title: "Happy 6 Months! ❤️",
+                indicator: "Page 1 of 6 • Shuruwat",
+                text: "“Meri sabse pyaari Bacha,<br><br>Pata hi nahi chala ki kab humare pyaar ke yeh 6 khubsurat mahine poore ho gaye. Long-distance hone ke bawajood, jab bhi tumse baat hoti hai toh lagta hai tum kahin door nahi balki mere bilkul paas baithi ho...”"
+            },
+            {
+                type: "text",
+                title: "Subah ka Sukoon ✨",
+                indicator: "Page 2 of 6 • Ehsaas",
+                text: "“Subah ki pehli khubsurat subah aur raat ka aakhri sukoon sirf aur sirf tum ho. Jab subah uthte hi tumhara pehla message aata hai, toh poora din apne aap accha guzarne lagta hai. Tum meri zindagi ki sabse khubsurat aadat ban chuki ho, Bacha.”"
+            },
+            {
+                type: "text",
+                title: "Wo Pyaara sa 'Bacha' 🌸",
+                indicator: "Page 3 of 6 • Tumhari Baatein",
+                text: "“Jab bhi tum pyaar se mujhe 'Bacha' bolti ho na, toh meri saari thakawat aur pareshani pal bhar mein gayab ho jati hai. Tumhara caring nature, tumhari cute baatein, aur tumhara mujh par haq jatana—mujhe duniya ki har cheez se zyada pyaara lagta hai!”"
+            },
+            {
+                type: "text",
+                title: "Tumhara Gussa aur Pyar 💖",
+                indicator: "Page 4 of 6 • Hamari Khट्टी-Meethi Baatein",
+                text: "“Sach kahun toh tumhara gussa hona aur fir mera tumhe pyaar se manana... yeh hamari story ka sabse cute hissa hai! Chahe tum kitna bhi gussa hone ka natak kar lo, par mujhe pata hai tumhare dil mein mere liye kitna bepanah pyaar hai. Tumhari har ek ada par mera dil bar bar aa jata hai!”"
+            },
+            {
+                type: "cake",
+                title: "Virtual Cake Cutting 🎂",
+                indicator: "Page 5 of 6 • Celebration",
+                text: "“Ab waqt ho chala hai hamari 6th Month Anniversary ka grand cake cut karne ka! Niche diye gaye cake par tap karo aur candle bujha kar apni pyaari si wish mango! 🎉❤️”"
+            },
+            {
+                type: "final",
+                title: "Forever Yours ✨",
+                indicator: "Page 6 of 6 • Infinite Love",
+                text: "“Love You Dhana Infinite! ♾️❤️<br><br>Meri jaan, yeh 6 mahine toh bas ek shuruwat hain. Meri poori zindagi, meri saari khushiyan aur mera har ek saans sirf tumhare naam hai. Tum meri pehli aur aakhri mohabbat ho. Hamesha aise hi mere sath rehna, kyunki tumhare bina main kuch bhi nahi hoon! I love you so much, Meri Dhana! 💖✨”"
+            }
+        ];
+
+        let currentPage = 0;
+
+        function updatePage() {
+            const data = pages[currentPage];
+            document.getElementById("main-title").innerText = data.title;
+            document.getElementById("step-indicator").innerText = data.indicator;
+            
+            const contentBox = document.querySelector(".page-content");
+            const secretBtn = document.getElementById("secretBtn");
+            
+            // Hide secret button and box by default on page change
+            secretBtn.style.display = "none";
+            document.getElementById("secretSurprise").style.display = "none";
+            
+            if (data.type === "cake") {
+                // Page 5: Cake Cutting View
+                contentBox.innerHTML = `
+                    <div style="width: 100%; text-align: center;">
+                        <p class="page-text" style="text-align: center; margin-bottom: 5px;">${data.text}</p>
+                        <div class="cake-container" onclick="cutCake()">🎂🔥</div>
+                        <div id="cake-status" class="cake-msg">Tap the cake to cut it & celebrate! ✨</div>
+                    </div>
+                `;
+            } else {
+                // Normal Text / Final Page View
+                contentBox.innerHTML = `<p id="page-text" class="page-text">${data.text}</p>`;
+            }
+
+            // Navigation Buttons Setup
+            let btnHTML = '';
+            if (currentPage > 0) {
+                btnHTML += `<button class="action-btn secondary-btn" onclick="prevPage()">➔ Peeche</button>`;
+            }
+            if (currentPage < pages.length - 1) {
+                btnHTML += `<button class="action-btn" onclick="nextPage()">Aage Badhein ➔</button>`;
+            } else {
+                btnHTML += `<button class="action-btn" onclick="restartJourney()">Dobara Dekhein 💖</button>`;
+            }
+            document.getElementById("btn-group").innerHTML = btnHTML;
+        }
+
+        function nextPage() {
+            if (currentPage < pages.length - 1) {
+                currentPage++;
+                updatePage();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                currentPage--;
+                updatePage();
+            }
+        }
+
+        function cutCake() {
+            const cakeStatus = document.getElementById("cake-status");
+            const cakeContainer = document.querySelector(".cake-container");
+            const secretBtn = document.getElementById("secretBtn");
+
+            cakeContainer.innerHTML = "🍰✨🎉";
+            cakeStatus.innerHTML = "Woohoo! Cake cut ho gaya! Happy 6th Month Anniversary, Meri Jaan! 💖🥂";
+            cakeStatus.style.color = "#ff3377";
+            cakeStatus.style.fontWeight = "bold";
+
+            // Reveal Secret Button after cake cut
+            secretBtn.style.display = "block";
+            secretBtn.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function restartJourney() {
+            currentPage = 0;
+            updatePage();
+        }
+
+        // Magical Floating Hearts Generator
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart-bg";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 5) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 300);
+
+        // Initialize First Page
+        updatePage();
+    </script>
+</body>
+</html>
